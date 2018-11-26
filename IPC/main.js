@@ -25,9 +25,12 @@ function createWindow(){
     });
 }
 //用于和index.js等进行交互
-ipc.on('open-erroe-dialog',function(event){
+ipc.on('async-message',function(event){
     dialog.showErrorBox('An error message','Demo of an error message')//接受index.js那边发出的消息
-    event.sender.send('opened-error-dialog','main process opened the error dialog')//用于向index.js发消息
+    event.sender.send('async-reply','main process opened the error dialog')//用于向index.js发消息
+})
+ipc.on('sync-message',function(event){
+    event.returnValue = 'sync-reply';
 })
 
 
