@@ -1,5 +1,5 @@
 {
-    "name":"hello-word",
+    "name":"shell-demo",
     "version":"1.0.0",
     "main":"main.js",
     "devDependencies": {
