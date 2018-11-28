@@ -56,6 +56,21 @@ app.on('ready',function(){
     ]
     const menu = Menu.buildFromTemplate(tempalte);//template is a combination of arrays and objects
     Menu.setApplicationMenu(menu);//behave this basic menue
+
+//窗口添加右击事件
+    const ctxMenu = new Menu();
+    ctxMenu.append(new MenuItem({
+        label:'hello,I am right click function',
+        click:function(){
+            console.log('hello,I am a baby')
+        }
+    }))
+    //添加item
+    ctxMenu.append(new MenuItem({role:'selectall'}))
+
+    win.webContents.on('context-menu',function(e,params){
+        ctxMenu.popup(win,params.x,params.y)
+    })
 });
 
 app.on('window-all-closed', function () {
