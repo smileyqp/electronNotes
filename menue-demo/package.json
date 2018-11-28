@@ -1,0 +1,14 @@
+{
+    "name":"menue-demo",
+    "version":"1.0.0",
+    "main":"main.js",
+    "devDependencies": {
+        "electron": "^3.0.7"
+      },
+      "scripts": {
+        "start": "electron ."
+      }
+    
+
+    
+}
