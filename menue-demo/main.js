@@ -5,6 +5,7 @@ const path = require("path");
 const url = require("url");
 const Menu = electron.Menu;
 const MenuItem = electron.MenuItem;
+const globalShortcut = electron.globalShortcut;
 
 let win;
 
@@ -35,11 +36,6 @@ app.on('ready',function(){
                 {label:'bbbbb'}
             ]           
         },{
-            label:'help',
-            click:function(){
-                electron.shell.openExternal('http://www.baidu.com');
-            }
-        },{
             label:'edit',
             submenu:[
                 {role:'undo'},
@@ -52,6 +48,15 @@ app.on('ready',function(){
                 {role:'delete'},
                 {role:'selectall'}
             ]
+        },{
+            label:'help',
+            submenu:[{
+                label:'about electron',
+                click:function(){
+                    electron.shell.openExternal('httP://www.baidu.com');
+                },
+                accelerator:'CmdOrCtrl + Shift + H' //添加快捷键，添加这一条仅仅适用于当该软件获得焦点的时候
+            }]
         }
     ]
     const menu = Menu.buildFromTemplate(tempalte);//template is a combination of arrays and objects
@@ -70,7 +75,11 @@ app.on('ready',function(){
 
     win.webContents.on('context-menu',function(e,params){
         ctxMenu.popup(win,params.x,params.y)
-    })
+    });
+
+    globalShortcut.register('Alt+1',function(){
+        win.show();
+    });
 });
 
 app.on('window-all-closed', function () {
