@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>crud-file!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="photon.min.css">
+  </head>
+  <body>
+    <div class="mainwrapper">
+      <h1>CRUD File</h1>
+      <form>
+        <div class="form-group">
+          <label>file name</label>
+          <input id="fileName" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>contents</label>
+            <textarea id="fileContents" class="form-control" rows="5"></textarea>
+        </div>
+      </form>
+      <button id="btnCreate" class="btn btn-default">create</button>
+      <button id="btnRead" class="btn btn-default">Read</button>
+      <button id="btnDelete" class="btn btn-default">Delete</button>
+    </div>
+   
+    <script>
+      require('./index.js');
+    </script>
+  </body>
+</html>
